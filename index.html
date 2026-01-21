@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DonoBook Showcase</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --primary: 262 83% 67%;
+  --bg: #f7f6fb;
+  --card: rgba(255,255,255,0.95);
+  --shadow: 0 30px 60px rgba(0,0,0,0.08);
+}
+
+/* RESET */
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: Inter, sans-serif;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+/* LAYOUT */
+.container {
+  height: 100vh;
+  padding: 1.8rem;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 4rem;
+  margin: 0;
+  background: linear-gradient(
+    90deg,
+    hsl(var(--primary) / 0.25),
+    hsl(var(--primary))
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header p {
+  max-width: 950px;
+  margin: 1rem auto;
+  color: #444;
+}
+
+.header .tagline {
+  margin-top: .8rem;
+  font-weight: 600;
+  color: #555;
+}
+
+/* MAIN GRID */
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  gap: 2rem;
+}
+
+/* CARD */
+.card {
+  background: var(--card);
+  border-radius: 22px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform .25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+/* TITLE */
+.card h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  background: linear-gradient(
+    90deg,
+    hsl(var(--primary)),
+    hsl(var(--primary) / 0.5)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card p {
+  font-size: 0.92rem;
+  color: #555;
+  margin: .5rem 0;
+}
+
+/* PREVIEW */
+.preview {
+  flex: 1;
+  margin-top: .8rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.05);
+}
+
+/* Disable interaction inside preview */
+.preview iframe,
+.preview embed,
+.preview img {
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: none;
+  object-fit: contain;
+}
+
+/* BUTTON */
+.action {
+  margin-top: 1rem;
+  padding: .8rem;
+  border-radius: 10px;
+  background: linear-gradient(
+    135deg,
+    hsl(var(--primary)),
+    hsl(var(--primary) / 0)
+  );
+  color: white;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  font-size: .85rem;
+  opacity: .7;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .container { padding: 1.5rem; }
+  .main { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>DonoBook</h1>
+    <p>
+      A socio-economic digital initiative using <strong>AI + OCR</strong> to revive unused books
+      and bring knowledge back into circulation.
+      <br>
+      <span style="opacity:0.9;">
+      Uncovering Hiiden Treasure and Bringing Them to Light
+      </span>
+    </p>
+    <div class="tagline">
+      Scan → AI/OCR Auto-Fill → Donate / Exchange
+    </div>
+    <br>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- SOURCE -->
+    <div class="card" onclick="window.open('https://github.com/AdeemAmir/DonoBook','_blank')">
+      <h3>💻 Source Code</h3>
+      <p>Open-source implementation and development history.</p>
+
+      <div class="preview">
+        <img src="https://opengraph.githubassets.com/1/AdeemAmir/DonoBook?cache=2">
+      </div>
+
+      <div class="action">View Repository</div>
+    </div>
+
+    <!-- DEMO -->
+    <div class="card" onclick="window.open('https://donobook.vercel.app','_blank')">
+      <h3>🌐 Live Tech Demo</h3>
+      <p>Working AI + OCR powered platform.</p>
+
+      <div class="preview">
+        <iframe src="https://donobook.vercel.app"></iframe>
+      </div>
+
+      <div class="action">Open Website</div>
+    </div>
+
+    <!-- DOCS -->
+    <div class="card" onclick="window.open('assets/docs.pdf','_blank')">
+      <h3>📄 Documentation</h3>
+      <p>System design, architecture and workflow.</p>
+
+      <div class="preview">
+        <embed src="assets/docs.pdf" type="application/pdf">
+      </div>
+
+      <div class="action">Open PDF</div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    © 2026 <strong>DonoBook™</strong>. All rights reserved.  
+    <br>
+    DonoBook project is co-owned and maintained by 
+    <strong>Adeem Amir</strong> & <strong>Sajjawal Ali</strong>.
+  </div>
+
+</div>
+
+</body>
+</html>
